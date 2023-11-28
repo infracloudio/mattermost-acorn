@@ -5,8 +5,8 @@ icon:        "mattermost-icon.png"
 
 
 args: {
-	// Name of the database to create. Defaults to "mattermost"
-	dbName: "mattermost"
+  // Name of the database to create. Defaults to "mattermost"
+  dbName: "mattermost"
   // Name of the database user to create. Defaults to "mattermost"
   dbUser: "mattermost"
 }
