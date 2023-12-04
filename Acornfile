@@ -1,0 +1,55 @@
+name:        "Mattermost Sample Acorn"
+description: "Acorn running a sample Mattermost app"
+readme:      "./README.md"
+icon:        "mattermost-icon.png"
+
+
+args: {
+  // Name of the database to create. Defaults to "mattermost"
+  dbName: "mattermost"
+  // Name of the database user to create. Defaults to "mattermost"
+  dbUser: "mattermost"
+}
+
+services: db: {
+  image: "ghcr.io/acorn-io/postgres:v15.#-#"
+  serviceArgs: {
+      dbName: args.dbName
+      dbUser: args.dbUser
+  }
+}
+
+containers: {
+  mattermost: {
+    image: "mattermost/mattermost-enterprise-edition:7.8"
+    env: {
+      "TZ": "UTC"
+      "MM_SQLSETTINGS_DRIVERNAME": "postgres"
+      "MM_SQLSETTINGS_DATASOURCE":"postgresql://@{service.db.secrets.admin.username}:@{service.db.secrets.admin.password}@@{service.db.address}:5432?sslmode=disable&connect_timeout=10"
+      "MM_BLEVESETTINGS_INDEXDIR": "/mattermost/bleve-indexes"
+      "MM_SERVICESETTINGS_SITEURL": "https://@{services.mattermost.endpoint}"
+      "POSTGRES_USER": "@{service.db.secrets.admin.username}"
+      "POSTGRES_PASSWORD": "@{service.db.secrets.admin.password}"
+      "POSTGRES_DB":"@{service.db.data.dbName}"
+    }
+    ports: {
+      publish: "8065:8065/http"
+    }
+    consumes: ["db"]
+    sidecars: {
+      setup: {
+        image: "busybox:1.36"
+        init: true
+        dirs: {
+            "/mattermost/config": "./volumes/app/mattermost/config"
+            "/mattermost/data": "./volumes/app/mattermost/data"
+            "/mattermost/logs": "./volumes/app/mattermost/logs"
+            "/mattermost/plugins": "./volumes/app/mattermost/plugins"
+            "/mattermost/client/plugins": "./volumes/app/mattermost/client"
+            "/mattermost/bleve-indexes": "./volumes/app/mattermost/bleve-indexes"
+        }
+        cmd: ["/bin/sh", "-c", "chown -R 2000:2000 ./mattermost/logs"]
+      }
+    }
+  }
+}
