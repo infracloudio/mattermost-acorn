@@ -1,10 +1,12 @@
 # Deploying Mattermost on Acorn
 
-This is where [Acorn](http://www.acorn.io) comes in, it is a user-friendly cloud platform, simplifies deploying modern cloud-native apps with a free sandbox accessible through GitHub account. It streamlines development workflows using mainstream container tools, providing the power of Kubernetes and Terraform without complexity.
+In a world where teams are scattered globally, staying connected is key. Sure, tools like Slack are great, but have you thought about hosting your collaboration tools in-house? It's all about saving costs, staying in control, and enjoying full autonomy. Which is where Mattermost comes in picture, it is open-source software which gives you all the perks of secure team collaboration without the fuss of plan restrictions. Now, that we know why Mattermost is good for secure team collaboration but how to go about deployment without dabbling through overwhelming infrastructure complexicity?
+
+This is where [Acorn](http://www.acorn.io) steps in to offer a solution. Acorn is an cloud platform designed to simplify the building, sharing, and deploying of containerized apps. It allows you to encapsulate your entire application, along with its dependencies, into a single file known as an Acornfile. With Acorn, packaging your application into an OCI container image and deploying it becomes straightforward, often requiring just a single click.
 
 Deploying on Acorn is simple as defining your application with an [Acornfile](https://docs.acorn.io/reference/acornfile), generating a deployable Acorn Image.
 
-In this tutorial, we'll see how to set up your Mattermost application.
+In this tutorial, we'll see how you can set up your Mattermost application, via two different methods.
 
 If you want to skip to the end, just click [![Run in Acorn](https://acorn.io/v1-ui/run/badge?image=ghcr.io+infracloudio+mattermost-acorn:v%23.%23.%23-%23&ref=sudhanshu456)](https://acorn.io/run/ghcr.io/infracloudio/mattermost-acorn:v%23.%23.%23-%23?ref=sudhanshu456&name=Archimedis+Mattermost) to launch the app immediately in a free sandbox environment. All you need to join is a GitHub ID to create an account.
 
