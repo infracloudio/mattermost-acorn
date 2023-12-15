@@ -8,7 +8,9 @@ Deploying on Acorn is simple as defining your application with an [Acornfile](ht
 
 In this tutorial, we'll see how you can set up your Mattermost application, via two different methods.
 
-If you want to skip to the end, just click [![Run in Acorn](https://acorn.io/v1-ui/run/badge?image=ghcr.io+infracloudio+mattermost-acorn:v%23.%23.%23-%23&ref=sudhanshu456)](https://acorn.io/run/ghcr.io/infracloudio/mattermost-acorn:v%23.%23.%23-%23?ref=sudhanshu456&name=Archimedis+Mattermost) to launch the app immediately in a free sandbox environment. All you need to join is a GitHub ID to create an account.
+If you want to skip to the end, just click _Run in Acorn_ button below to launch the app immediately in a free sandbox environment. All you need to join is a GitHub ID to create an account.
+
+[![Run in Acorn](https://acorn.io/v1-ui/run/badge?image=ghcr.io+infracloudio+mattermost-acorn:v%23.%23.%23-%23&ref=sudhanshu456)](https://acorn.io/run/ghcr.io/infracloudio/mattermost-acorn:v%23.%23.%23-%23?ref=sudhanshu456&name=Archimedis+Mattermost)
 
 > _Note: Everything shown in this tutorial can be found in [this repository](https://github.com/infracloudio/mattermost-acorn)_.
 
